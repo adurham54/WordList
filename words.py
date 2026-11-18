@@ -1,9 +1,15 @@
+import numpy as np
+data = np.loadtxt("loop4.csv", delimiter = ",", dtype=str, encoding ="utf8")
+words = []
+rows, columns = data.shape
 
 def num_letters(n_rows, n_cols):
     return n_rows*n_cols-((n_rows-2)*(n_cols-2))
+#loop 1
+for c in range(columns):
+    words.append(data[rows, columns])
+        
+print(words)
+assert len(words) == num_letters(rows,columns)
 
-assert num_letters(3,4) == 10
-assert num_letters(4, 13) == 30
-assert num_letters(4, 4) == 12
-assert num_letters(6,4) == 16
-print("Checking assertions")
+
